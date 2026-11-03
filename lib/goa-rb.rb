@@ -5,8 +5,8 @@
 
 require "gobject-introspection"
 
-require_relative "goa/version"
-require_relative "goa/loader"
+require_relative "goa-rb/version"
+require_relative "goa-rb/loader"
 
 # Ruby bindings for GNOME Online Accounts, the user's configured accounts and their credentials.
 #

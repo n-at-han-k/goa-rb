@@ -3,7 +3,7 @@
 # Released under the Apache License, Version 2.0.
 # Copyright, 2026, by General Intelligence Systems.
 
-require "goa/version"
+require "goa-rb/version"
 
 describe Goa do
   it "has a version" do

@@ -5,7 +5,7 @@ the accounts the user has already configured in GNOME Settings, and the
 credentials that go with them.
 
 ```ruby
-require "goa"
+require "goa-rb"
 
 client = Goa::Client.new   # talks to the session's goa daemon over D-Bus
 
@@ -24,6 +24,20 @@ end
 it, so it is for a desktop application rather than a server or a CI job.
 Everything else — the `*Skeleton` classes, the interfaces, the constants — is
 ordinary GObject and works anywhere.
+
+## The name
+
+The gem is `goa-rb`; the module is `Goa`.
+
+`goa` was already taken on RubyGems by an unrelated "GOA utilities" gem, so the
+published name carries the `-rb` suffix. The module does not: `Goa` is the
+GObject Introspection namespace that `Goa-1.0.typelib` declares, and renaming
+it would mean the binding no longer matched the library it binds.
+
+```ruby
+require "goa-rb"   # the gem
+Goa::Client        # the namespace
+```
 
 ## How this works, and what it costs to install
 

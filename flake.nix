@@ -13,10 +13,10 @@
         pkgs = nixpkgs.legacyPackages.${system};
         lib = mine.lib.${system};
 
-        gemspecFiles = pkgs.runCommand "goa-gemspec" { } ''
-          mkdir -p $out/lib/goa
-          cp ${./goa.gemspec}         $out/goa.gemspec
-          cp ${./lib/goa/version.rb}  $out/lib/goa/version.rb
+        gemspecFiles = pkgs.runCommand "goa-rb-gemspec" { } ''
+          mkdir -p $out/lib/goa-rb
+          cp ${./goa-rb.gemspec}         $out/goa-rb.gemspec
+          cp ${./lib/goa-rb/version.rb}  $out/lib/goa-rb/version.rb
         '';
 
         gems = pkgs.bundlerEnv {

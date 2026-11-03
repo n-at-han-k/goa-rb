@@ -3,7 +3,7 @@
 # Released under the Apache License, Version 2.0.
 # Copyright, 2026, by General Intelligence Systems.
 
-require "goa"
+require "goa-rb"
 
 describe Goa do
   it "defines the namespace from the typelib" do

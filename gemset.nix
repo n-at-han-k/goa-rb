@@ -31,7 +31,7 @@
     };
     version = "4.4.0";
   };
-  goa = {
+  goa-rb = {
     dependencies = ["gem_kit" "gobject-introspection"];
     groups = ["default"];
     platforms = [];

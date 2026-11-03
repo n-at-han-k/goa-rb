@@ -36,6 +36,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   from the Cross Compile workflow; that workflow is gone and there are no
   platform gems, so left alone it aborted before doing anything.
 
+### Changed
+
+- The gem is published as `goa-rb`, not `goa`. That name was already taken on
+  RubyGems by an unrelated "GOA utilities" gem at 0.0.6, so the first release
+  attempt failed on the push. The Ruby module is unchanged and is still `Goa`,
+  because that is the GObject Introspection namespace the typelib declares —
+  only the published name and the require path move, to `require "goa-rb"`.
+
 ### Removed
 
 - `ext/`, `Cargo.toml`, `Cargo.lock`, the cross-compile workflow, and the

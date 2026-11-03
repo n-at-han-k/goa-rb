@@ -86,14 +86,14 @@ jobs:
         run: |
           nix develop --command bash -lc '
             set -euo pipefail
-            gem build goa.gemspec
+            gem build goa-rb.gemspec
             contents=$(tar -xOf goa-*.gem data.tar.gz | tar -tzf -)
             echo "$contents"
             if echo "$contents" | grep -qE "(^|/)ext/|\.rs$|Cargo\.(toml|lock)"; then
               echo "::error::the packaged gem carries native-extension sources"; exit 1
             fi
             ruby -e "
-              spec = Gem::Specification.load(\"goa.gemspec\")
+              spec = Gem::Specification.load(\"goa-rb.gemspec\")
               abort \"gemspec declares extensions: #{spec.extensions}\" unless spec.extensions.empty?
               names = spec.runtime_dependencies.map(&:name).sort
               abort \"unexpected runtime deps: #{names}\" unless names == [\"gem_kit\", \"gobject-introspection\"]
