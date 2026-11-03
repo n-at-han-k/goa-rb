@@ -1,0 +1,7 @@
+/.bundle/
+/pkg/
+/tmp/
+/vendor/
+
+# Built by bin/release-gem and by the CI check that the packaged gem is pure Ruby.
+*.gem

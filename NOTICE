@@ -1,0 +1,36 @@
+Goa for Ruby
+Copyright 2026 General Intelligence Systems
+
+--------------------------------------------------------------------------------
+GNOME Online Accounts
+--------------------------------------------------------------------------------
+
+This gem defines the Goa namespace from `Goa-1.0.typelib`, the GObject
+Introspection description GNOME Online Accounts ships. It carries no code from
+that project: the typelib is read at require time, from the copy the user's
+distribution installed, and nothing is linked, vendored or copied here.
+
+  https://gitlab.gnome.org/GNOME/gnome-online-accounts
+  Copyright 2011-2026 The GNOME Project and contributors
+  Licensed under the GNU Lesser General Public License, version 2.1 or later
+
+Because this product neither links nor distributes any part of it, the LGPL
+places no obligation on a user of this gem beyond those that already apply to
+having the library installed.
+
+--------------------------------------------------------------------------------
+ruby-gnome
+--------------------------------------------------------------------------------
+
+The loader in lib/goa/loader.rb is modelled on ruby-gnome's own loaders --
+libsecret/lib/libsecret/loader.rb for a namespace that needs no init call, and
+gtksourceview5/lib/gtksourceview5/loader.rb for one that does. The shape is
+taken from them; the code is not.
+
+  https://github.com/ruby-gnome/ruby-gnome
+  Copyright 2002-2026 Ruby-GNOME Project Team
+  Licensed under the GNU Lesser General Public License, version 2.1 or later
+
+`gobject-introspection` and `glib2`, which this gem depends on at runtime, come
+from that project and are installed as gems in their own right rather than
+redistributed here.
