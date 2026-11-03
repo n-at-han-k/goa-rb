@@ -14,9 +14,9 @@
         lib = mine.lib.${system};
 
         gemspecFiles = pkgs.runCommand "goa-rb-gemspec" { } ''
-          mkdir -p $out/lib/goa-rb
+          mkdir -p $out/lib/goa
           cp ${./goa-rb.gemspec}         $out/goa-rb.gemspec
-          cp ${./lib/goa-rb/version.rb}  $out/lib/goa-rb/version.rb
+          cp ${./lib/goa/version.rb}     $out/lib/goa/version.rb
         '';
 
         gems = pkgs.bundlerEnv {

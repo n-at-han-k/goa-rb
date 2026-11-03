@@ -35,9 +35,13 @@ GObject Introspection namespace that `Goa-1.0.typelib` declares, and renaming
 it would mean the binding no longer matched the library it binds.
 
 ```ruby
-require "goa-rb"   # the gem
+require "goa"      # or "goa-rb" — both load the same thing
 Goa::Client        # the namespace
 ```
+
+The code lives in `lib/goa.rb` and `lib/goa/`, where the namespace says it
+should. `lib/goa-rb.rb` is a one-line entry point so `require` works under the
+gem's published name too.
 
 ## How this works, and what it costs to install
 
