@@ -10,10 +10,26 @@
 # `nix develop` rather than installing packages and hoping the versions line
 # up. That is deliberate: the environment is the hard part of a GI binding, and
 # CI checking a different environment than the one people develop in is how an
-# environment bug reaches a release. It also replaces the cross-compile matrix
-# this repository used to carry, which failed on every platform at `glib-sys`
-# because `pkg-config --libs --cflags glib-2.0` is not available in
-# rb-sys-dock -- rb-sys-dock does not use this flake.
+# environment bug reaches a release.
+#
+# This also replaces the cross-compile matrix this repository used to carry,
+# which failed on every platform at `glib-sys` because
+# `pkg-config --libs --cflags glib-2.0` found nothing inside rb-sys-dock.
+#
+# The fix for that was not "point rb-sys-dock at this flake". rb-sys-dock is a
+# set of fixed upstream container images, one per target triple, and the images
+# *are* the toolchain: they are pinned to an old glibc so the resulting binary
+# gem runs on distributions older than the builder, which is the entire reason
+# to cross-compile in a container at all. Dropping a nix store into them does
+# not give `glib-sys` what it wants either, because what it wants is a glib
+# cross-compiled for each target with its `.pc` file on PKG_CONFIG_PATH -- so
+# satisfying it means maintaining a cross-built glib per platform, by hand,
+# forever, which is a larger job than the binding it was supposed to enable.
+# That is structural for every gir-generated crate, not a quirk of this repo.
+#
+# So the Rust route was dropped instead, and with it the need to compile
+# anything per platform. One `nix develop` job on ubuntu-latest is now the
+# whole matrix, and it runs the same shell a developer gets.
 name: Test
 
 on:

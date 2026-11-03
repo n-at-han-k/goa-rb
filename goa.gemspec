@@ -23,8 +23,8 @@ Gem::Specification.new do |spec|
   spec.metadata["source_code_uri"] = spec.homepage
   spec.metadata["documentation_uri"] = "https://n-at-han-k.github.io/goa-rb/"
 
-  # The library, and the native extension's sources.
-  #
+  # Just the library: there are no extension sources to ship, and no
+  # `spec.extensions` to build them with.
   spec.files = Dir.glob(
     ["{lib}/**/*", "LICENSE", "NOTICE", "README.md", "CHANGELOG.md"],
     File::FNM_DOTMATCH,
